@@ -1,10 +1,11 @@
 # inheritance is useful as we can create subclass and get all the functionality as our parent class
 # we can override or add new functionality without affecting the parent class
-from employees import Employees
+from Employees import Employees
 
 class Developer (Employees):
     raise_amt = 1.10
 
+# prog language was added as a new argument which will be added to Developer class but not Employee class
     def __init__(self, first, last, salary, prog_lang):
         # we do not want to retype self.first,etc so we add super!
         super().__init__(first, last, salary)
@@ -12,30 +13,16 @@ class Developer (Employees):
         self.prog_lang = prog_lang
 
 
-# this was instance from Employee class
-dev_1 = Developer('Corey', 'Schafer', 50000, "Python")
-dev_2 = Developer('Test', 'Employee', 60000, "Java")
+# instances from Employee class
+dev_1 = Developer("Anna", "Smith", "35000", "Python")
+dev_2 = Developer("James", "Barry", "45000", "Java")
+
+# added a new developer
+dev_3 = Developer("John", "Brown", "65000", "Python ")
 print(dev_1.email)
 print(dev_1.prog_lang)
-
-# to use Employee class if we want to check the bonus payment
-# print(dev_1.pay)
-# dev_1.apply_raise()
-# print(dev_1.pay)
+print(dev_3.email)
 
 
-# however what if we want to change the bonus (raise) amount we need to make some changes!
-# at the top of Developer class we change this amount!
-
-
-# print(help(Developer))
-
-# first it looked in our developer class for the init method
-# when it wasn't found it went to employee class and executed it
-# if it didnt find it in Employee class it would of looked at builtins.object
-#
-
-# print(dev_1.raise_amt)
-# dev_1.apply_raise()
-# print(dev_1.raise_amt)
+# print()
 
